@@ -1,0 +1,60 @@
+<section class="vh-100 bg-image">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div style="text-align: end;" class="mt-1">
+        <button type="button" class="btn btn-danger btn-rounded" routerLink="" (click)="logOut()">LOG OUT</button>
+      </div>
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div style=" text-align: center;" class="mb-3">
+            <h2 class="currentUser">HEY {{currentUserName}} !! <br>IT'S TIME TO ADD SOME EVENT</h2>
+          </div>
+          <div class="card bg-dark text-white" style="border-radius: 15px;">
+            <div class="card-body p-5">
+
+              <h2 class="text-uppercase text-center mb-5">add Reminder</h2>
+
+              <form [formGroup]="eventForm" (ngSubmit)="addEvent()">
+
+                <div class="form-group md-form md-outline input-with-post-icon datepicker ">
+                  <label for="date">Date</label>
+                  <input placeholder="Select date" type="date" formControlName="date" id="date"
+                    class="form-control mt-2 mb-3">
+                </div>
+                <!-- Reactive form validation -->
+                <div style="color: red;"
+                  *ngIf="(this.eventForm.get('date')?.touched||this.eventForm.get('date')?.dirty)&&(this.eventForm.get('date')?.errors)">
+                  Invalid Date format
+                </div>
+
+                <div class="form-group green-border-focus mb-3">
+                  <label for="discription">Discription</label>
+                  <textarea class="form-control  mt-2 mb-3" formControlName="discription" id="discription"
+                    rows="3"></textarea>
+                </div>
+                <!-- Reactive form validation -->
+                <div style="color: red;"
+                  *ngIf="(this.eventForm.get('discription')?.touched||this.eventForm.get('discription')?.dirty)&&(this.eventForm.get('discription')?.errors)">
+                  Invalid Characters
+                </div>
+
+                <div class="row">
+                  <div class="form-group justify-content-center mt-3 col-lg-6" style="float: left;">
+                    <button class="form-control btn btn-outline-light btn-lg px-5" type="submit">Add event</button>
+                  </div>
+
+                  <div class="form-group justify-content-center mt-3 col-lg-6" style="float: right;">
+                    <button class="form-control btn btn-outline-light btn-lg px-5 text-white fw-bold" type="button"
+                      routerLink="/history">VIEW EVENT</button>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

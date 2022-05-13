@@ -1,0 +1,52 @@
+<section class="vh-100 gradient-custom ">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5 ">
+
+              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+              <p class="text-white-50 mb-5">Please enter your login and password!</p>
+
+              <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+                <div class="form-group form-outline form-white mt-4 border border-white ">
+                  <input type="text" id="unum" class="form-control form-control-lg " formControlName="unum" />
+                  <label class="form-label">User Number</label>
+                </div>
+                <!-- Reactive form validation -->
+                <div style="color: red;"
+                  *ngIf="(this.loginForm.get('unum')?.touched||this.loginForm.get('unum')?.dirty)&&(this.loginForm.get('unum')?.errors)">
+                  Invalid User Number
+                </div>
+
+                <div class="form-group form-outline form-white mt-4 border border-white ">
+                  <input type="password" id="pswd" class="form-control form-control-lg" formControlName="pswd" />
+                  <label class="form-label" for="pswd">Password</label>
+                </div>
+                <!-- Reactive form validation -->
+                <div style="color: red;"
+                  *ngIf="(this.loginForm.get('pswd')?.touched||this.loginForm.get('pswd')?.dirty)&&(this.loginForm.get('pswd')?.errors)">
+                  Invalid Password
+                </div>
+
+                <div class="form-group mt-4">
+                  <button class=" btn btn-outline-light btn-lg px-5 " type="submit">Login</button>
+                </div>
+
+              </form>
+
+              <div>
+                <p class="mb-0 mt-3">Don't have an account? <a routerLink="/register" class="text-white-50 fw-bold">Sign
+                    Up</a> </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+<section class="vh-100 bg-image">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card bg-dark text-white" style="border-radius: 15px;">
+            <div class="card-body p-5 ">
+              <h2 class="text-uppercase text-center mb-5 ">Create an account</h2>
+
+              <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+                <div class="form-outline mt-4 form-group">
+                  <input type="text" id="uname" class="form-control form-control-lg border border-white text-white"
+                    name="uname" formControlName="uname" />
+                  <label class="form-label text-white" for="form3Example1cg">Your Name</label>
+                </div>
+                <div style="color: red;"
+                  *ngIf="(this.registerForm.get('uname')?.touched||this.registerForm.get('uname')?.dirty)&&(this.registerForm.get('uname')?.errors)">
+                  Invalid Userename
+                </div>
+
+                <div class="form-outline mt-4 form-group">
+                  <input type="text" id="unum" class="form-control form-control-lg border border-white text-white"
+                    name="unum" formControlName="unum" />
+                  <label class="form-label text-white" for="unum">Your User Number</label>
+                </div>
+                <div style="color: red;"
+                  *ngIf="(this.registerForm.get('acno')?.touched||this.registerForm.get('acno')?.dirty)&&(this.registerForm.get('acno')?.errors)">
+                  Invalid User Number
+                </div>
+
+                <div class="form-outline mt-4 form-group">
+                  <input type="password" id="pswd" class="form-control form-control-lg border border-white text-white"
+                    name="pswd" formControlName="pswd" />
+                  <label class="form-label text-white" for="form3Example4cg">Password</label>
+                </div>
+                <div style="color: red;"
+                  *ngIf="(this.registerForm.get('pswd')?.touched||this.registerForm.get('pswd')?.dirty)&&(this.registerForm.get('pswd')?.errors)">
+                  Invalid Password
+                </div>
+
+                <div class="form-group d-flex justify-content-center mt-4">
+                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+                </div>
+
+                <p class="text-center text-white mt-5 mb-0">Have already an account? <a routerLink=""
+                    class="text-white-50 fw-bold">Login here</a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
